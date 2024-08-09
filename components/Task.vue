@@ -56,7 +56,7 @@ const isOpen = ref<boolean>(false);
   }
   &__price {
     display: flex;
-    gap: 20px;
+    column-gap: 20px;
     font-size: 20px;
     line-height: 24px;
     letter-spacing: -0.02em;
@@ -72,5 +72,11 @@ const isOpen = ref<boolean>(false);
     font-size: 16px;
     line-height: 22.4px;
   }
+}
+@media (max-width: 360px) {
+  .task__price {
+    flex-direction: column;
+    row-gap: 4px;
+  } 
 }
 </style>

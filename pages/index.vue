@@ -57,6 +57,7 @@ const tasks = [
   display: flex;
   flex-direction: column;
   gap: 24px;
+  width: 100%;
   &__title {
     font-size: 32px;
     line-height: 38.4px;
@@ -69,4 +70,13 @@ const tasks = [
   }
 }
 
+@media (max-width: 780px) {
+  .slot {
+    padding-top: 24px;}
+  }
+  @media (max-width: 360px) {
+  .slot {
+    padding-top: 16px;
+  } 
+}
 </style>
