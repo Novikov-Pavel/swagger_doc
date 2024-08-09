@@ -90,6 +90,12 @@ const username = "username";
       margin: 16px 0;
       width: 100%;
     }
+    &__name {
+      font-size: 16px;
+    }
+    &__username {
+      font-size: 12px;
+    }
   }
 }
 </style>

@@ -49,7 +49,6 @@ const tasks = [
 .slot {
   padding-top: 32px;
   display: flex;
-  flex-wrap: wrap;
   column-gap: 20px;
   row-gap: 48px;
 }
@@ -72,8 +71,10 @@ const tasks = [
 
 @media (max-width: 780px) {
   .slot {
-    padding-top: 24px;}
+    padding-top: 24px;
+    flex-wrap: wrap;
   }
+}
   @media (max-width: 360px) {
   .slot {
     padding-top: 16px;
