@@ -7,14 +7,4 @@ export default defineNuxtConfig({
   },
   modules: ["@nuxt/ui", "@nuxt/fonts"],
   css: ["normalize.css/normalize.css"],
-  app: {
-    head: {
-      link: [
-        {
-          rel: "stylesheet",
-          href: "https://fonts.googleapis.com/css?family=Lato:400,700",
-        },
-      ],
-    },
-  },
 });

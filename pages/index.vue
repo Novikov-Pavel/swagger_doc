@@ -4,9 +4,9 @@
       <Aside />
       <p class="tasks">
         <h2 class="tasks__title">Все задания</h2>
-        1
-        2
-        3
+        <div class="tasks__item">
+          <Task />
+        </div>
       </p>
     </p>
   </default>
@@ -25,7 +25,18 @@
 }
 .tasks {
   display: flex;
-  
+  flex-direction: column;
+  gap: 24px;
+  &__title {
+    font-size: 32px;
+    line-height: 38.4px;
+    color: #06162E;
+  }
+  &__item {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
 }
 
 </style>
