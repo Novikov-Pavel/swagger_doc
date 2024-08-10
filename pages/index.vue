@@ -5,7 +5,7 @@
       <p class="tasks">
         <h2 class="tasks__title">Все задания</h2>
         <div class="tasks__item">
-          <Task v-for="task in tasks" :key="task.title" :task="task" />
+          <TaskMain v-for="task in tasks" :key="task.title" :task="task" />
         </div>
       </p>
     </p>
