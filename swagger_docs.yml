@@ -6,7 +6,7 @@ info:
     url: https://www.apache.org/licenses/LICENSE-2.0.html
   version: 0.0.1
 servers:
-  - url: http://localhost:3000/api/v1/
+  - url: http://localhost:3000/api/v1
 
 paths:
   /users/{user}:
@@ -68,7 +68,7 @@ paths:
       tags:
         - Tasks
       parameters:
-        - name: tasks
+        - name: user
           in: path
           required: true
           description: Идентификатор пользователя
