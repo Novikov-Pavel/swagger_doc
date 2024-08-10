@@ -1,0 +1,180 @@
+openapi: 3.0.0
+info:
+  title: Задачи пользователя
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0.html
+  version: 0.0.1
+servers:
+  - url: http://localhost:3000/api/v1/
+
+paths:
+  /users/{user}:
+    get:
+      summary: Метод получения пользователя по идентификатору
+      operationId: getUserById
+      tags:
+        - User
+      parameters:
+        - name: user
+          in: path
+          required: true
+          description: Идентификатор пользователя
+          schema:
+            type: string
+      responses:
+        "200":
+          "description": Пользователь
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/User"
+        default:
+          description: Любая неожиданная ошибка
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+    post:
+      summary: Метод отправки взятой задачи
+      description: Метод предназначен для сохранения в БД данных о взятой задаче в работу пользователем.
+      operationId: createTaskForUser
+      tags:
+        - User
+      parameters:
+        - name: user
+          in: path
+          required: true
+          description: Идентификатор пользователя
+          schema:
+            type: string
+      responses:
+        "200":
+          "description": Пользователь
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Book"
+        default:
+          description: Любая неожиданная ошибка
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+  /tasks/{user}:
+    get:
+      summary: Метод получения задач для пользователя
+      operationId: getTasksForUser
+      tags:
+        - Tasks
+      parameters:
+        - name: tasks
+          in: path
+          required: true
+          description: Идентификатор пользователя
+          schema:
+            type: string
+      responses:
+        "200":
+          "description": Все задачи
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Tasks"
+        default:
+          description: Любая неожиданная ошибка
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+
+components:
+  schemas:
+    User:
+      type: object
+      required:
+        - name
+        - status
+      properties:
+        username:
+          description: Никнейм пользователя
+          type: string
+          example: username
+        name:
+          description: Имя пользователя
+          type: string
+          example: Титова Елена Николаевна
+        avatar:
+          description: Аватар
+          type: string
+        instagram:
+          description: instagram
+          type: string
+        vk:
+          description: vk
+          type: string
+        twitter:
+          description: twitter
+          type: string
+        facebook:
+          description: facebook
+          type: string
+    Task:
+      type: object
+      properties:
+        type:
+          description: Тип задачи
+          type: string
+          example: Дизайн
+        title:
+          description: Заголовок задачи
+          type: string
+          example: Сделать креативы для ВК
+        description:
+          description: Описание задачи
+          type: string
+          example: Сделать креативы в ВК, дешево, под арбитражную тематику Портфолио - обязательно
+        price:
+          description: Стоимость задачи
+          type: number
+          example: 500
+        deadline:
+          description: Срок дней на исполнение
+          type: number
+          example: 5
+    Tasks:
+      type: array
+      items:
+        $ref: "#/components/schemas/Task"
+    Book:
+      type: object
+      required:
+        - name
+        - status
+      properties:
+        comment:
+          description: Комментарий
+          type: string
+        phone:
+          description: Телефон
+          type: string
+        email:
+          description: email
+          type: string
+        tg:
+          description: telegram
+          type: string
+        dontCall:
+          description: Не звонить
+          type: boolean
+    Error:
+      type: object
+      required:
+        - code
+        - message
+      properties:
+        code:
+          type: integer
+          format: int32
+        message:
+          type: string

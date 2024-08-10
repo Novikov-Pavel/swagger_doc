@@ -1,7 +1,7 @@
 <template>
   <default>
     <p class="slot">
-      <Aside />
+      <AsideMain />
       <p class="tasks">
         <h2 class="tasks__title">Все задания</h2>
         <div class="tasks__item">
